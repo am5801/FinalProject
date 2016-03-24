@@ -1,0 +1,83 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>NYC REDI</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <link href='https://fonts.googleapis.com/css?family=Wendy+One' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:500' rel='stylesheet' type='text/css'>
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-fUMURLTdEcpeYHly3PAwggI3l2UvdHNg/I+8LRph7hLDcAZm77YfDx3Tjum9d3vK" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">NYC REDI</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="http://am5801.github.io/Assignment3/">About ME<span class="sr-only">(current)</span></a></li>
+            <li><a href="http://cusp.nyu.edu/ms-in-applied-urban-science-and-informatics/awais/">CUSP Profile</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://www.nyu.edu">NYU</a></li>
+            <li><a href="http://cusp.nyu.edu">CUSP</a></li>
+            <li><a href="http://engineering.nyu.edu">Tandon</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="jumbotron">
+      <h1>New York City's Resilience to Emergencies & Disasters Index</h1>
+      <p>The proposed Resilience to Emergencies and Disasters Index (REDI) is a normalized score (1 - 100) for each Census tract's resilience capacity with respect to the City average. A score of 100 represents maximum resilience. Darker blue represents greater resilience capacity, while darker red represents greater vulnerability.</p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 rediOptions">
+        <h3>Select a REDI Score</h3>
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="btn btn-default" id="eqWeight">Equal Weights</button>
+          <button type="button" class="btn btn-default" id="catSum">Categorical Sum</button>
+          <button type="button" class="btn btn-default" id="socInf">Social Infrastructure</button>
+          <button type="button" class="btn btn-default" id="phyInf">Physical Infrastructure</button>
+          <button type="button" class="btn btn-default" id="envCon">Environmental Conditions</button>
+          <button type="button" class="btn btn-default" id='econStr'>Economic Strength</button>
+        </div>
+        <br/>
+        <br/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div id="map1" class="col-md-12 map1"></div>
+    </div>
+
+    <div id="infoWindow"></div>
+  </div>
+
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+  <script src ="https://code.jquery.com/jquery-2.2.1.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
