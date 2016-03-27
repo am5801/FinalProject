@@ -15,7 +15,15 @@ L.tileLayer(basemapUrl,{
 	attribution: attribution
 }).addTo(map1);
 
-//this function takes a value and returns a color based on which bucket the value falls between
+//get geojson data file and add data to map
+$.getJSON('data/redi.geojson', function(redi_data) {
+  geojson = L.geoJson(redi_data,{
+    style: style,
+    onEachFeature: onEachFeature
+  }).addTo(map1);
+});
+
+//this function takes a value and returns a color based on which bucket the value falls in
 function getColor(d) {
   return d > 90 ? '#542788' :
          d > 70 ? '#2166ac' :
@@ -24,39 +32,6 @@ function getColor(d) {
          d > 10 ? '#d7191c' :
                   '#a50f15';
 }
-
-//select desired column from dataset when appropriate button is clicked
-var redi_column = 'redi_nor_1'; // initially shows equal weigths REDI score
-
-$("#eqWeight").click(function(){
-  redi_column = 'redi_nor_1';
-  geojson.setStyle(style);
-});
-
-$("#catSum").click(function(){
-  redi_column = 'redi_pct_1';
-  geojson.setStyle(style);
-});
-
-$("#socInf").click(function(){
-  redi_column = 'socredno_1';
-  geojson.setStyle(style);
-});
-
-$("#phyInf").click(function(){
-  redi_column = 'infredno_1';
-  geojson.setStyle(style);
-});
-
-$("#envCon").click(function(){
-  redi_column = 'envredno_1';
-  geojson.setStyle(style);
-});
-
-$("#econStr").click(function(){
-  redi_column = 'ecoredno_1';
-  geojson.setStyle(style);
-});
 
 //this function returns a style object, but dynamically sets fillColor based on the data
 function style(feature) {
@@ -104,15 +79,44 @@ function onEachFeature(feature, layer) {
 	});
 }
 
-//be sure to specify style and onEachFeature options when calling L.geoJson().
-$.getJSON('data/redi.geojson', function(redi_data) {
-	geojson = L.geoJson(redi_data,{
-	  style: style,
-	  onEachFeature: onEachFeature
-	}).addTo(map1);
+//Variable represents the desired column needed from dataset when appropriate button is clicked
+var redi_column = 'redi_nor_1'; // initially shows equal weights REDI score
+
+//Equal Weights REDI Score
+$("#eqWeight").click(function(){
+  redi_column = 'redi_nor_1';
+  geojson.setStyle(style);
 });
 
-// map1.setZoom(9);
+//Categorical Sum REDI Score
+$("#catSum").click(function(){
+  redi_column = 'redi_pct_1';
+  geojson.setStyle(style);
+});
+
+//Social Infrastructure & Community Connectivity REDI Score
+$("#socInf").click(function(){
+  redi_column = 'socredno_1';
+  geojson.setStyle(style);
+});
+
+// Physical Infrastructure REDI Score
+$("#phyInf").click(function(){
+  redi_column = 'infredno_1';
+  geojson.setStyle(style);
+});
+
+// Environmental Conditions REDI Score
+$("#envCon").click(function(){
+  redi_column = 'envredno_1';
+  geojson.setStyle(style);
+});
+
+// Economic Strength REDI Score
+$("#econStr").click(function(){
+  redi_column = 'ecoredno_1';
+  geojson.setStyle(style);
+});
 
 // adding a legend to the map
 var legend = L.control({position: 'bottomright'});

@@ -15,8 +15,10 @@
 	margin-bottom: -10px;
 }
 
-.jumbotron p{
-	margin-bottom: -10px;
+.jumbotron h5{
+	margin-bottom: -15px;
+	color: red;
+	font-size: 18px;
 }
 
 .jumbotron h1 {
