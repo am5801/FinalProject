@@ -39,6 +39,7 @@
 	background: gray;
 	border-style: solid;
 	border-color: blue;
+	margin-top: 20px;
 }
 
 #infoWindow {
@@ -46,14 +47,14 @@
 	border-radius: 10px;
 	font-family: 'Alegreya Sans SC', sans-serif;
 	font-size: 16px;
-	position: absolute;
-	top: 650px;
-	width: 25%;
-	margin-left: 70px;
+	/*position: relative;*/
+	width: 60%;
+	left: 70px;
 	text-align: center;
 	color: black;
 	border-style: solid;
 	border-color: blue;
+	margin: auto;
 }
 
 .legend {
