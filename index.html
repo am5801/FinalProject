@@ -23,12 +23,6 @@
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
           <a class="navbar-brand" href="#">NYC REDI</a>
         </div>
 
@@ -45,36 +39,124 @@
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
-    </nav>
+    </nav><!-- /.navbar-default -->
 
+    <!-- Jumbotron Div containing Project Overview -->
     <div class="jumbotron">
       <h1>New York City's Resilience to Emergencies & Disasters Index</h1>
-      <p>The proposed Resilience to Emergencies and Disasters Index (REDI) is a normalized score (1 - 100) for each Census tract's resilience capacity with respect to the City average. The REDI score is an attempt to measure each neighborhood's ability to "bounce back" from an emergency situation or disaster event. A score of 100 represents maximum resilience. Darker blue represents greater resilience capacity, while darker red represents greater vulnerability. 24 indicator variables (collected from open data sources) were selected to form the REDI score for each tract. These variables were placed into 4 categories: Social Infrastructure & Community Connectivity, Physical Infrastructure, Strength of Economy, and Environmental Conditions.</p>
-      <h5>NOTE: This work is currently in progress and is NOT available for distribution or publication. For more information please email: <a href="mailto:awais.malik@nyu.edu">Awais.Malik@nyu.edu</a></h5>
+      <p>The proposed Resilience to Emergencies and Disasters Index (REDI) is a normalized score (1 - 100) for each Census Tract's resilience capacity with respect to the City average. The REDI score measures each neighborhood's ability to "bounce back" from an emergency situation or disaster event with a score of 100 representing maximum resilience capacity. Darker blue represents greater resilience capacity, while darker red represents greater vulnerability. 24 indicator variables (described below) were selected to form the REDI score for each tract. These variables were placed into 4 categories: Social Infrastructure & Community Connectivity, Physical Infrastructure, Economic Strength, and Environmental Conditions. The "Equal Weights" score was calculated by assigning the same weight to all 24 variables without considering the 4 categories. The "Categorical Sum" score was calculated by summing up the normalized REDI scores for each of the 4 categories, and dividing by 400.</p>
+      <h5>NOTE: This work is currently in progress and is NOT available for distribution, publication or reuse. For more information please email: <a href="mailto:awais.malik@nyu.edu">Awais.Malik@nyu.edu</a></h5>
     </div>
-
+    <!-- REDI Score Options Buttons -->
     <div class="row">
       <div class="col-md-12 rediOptions">
         <h3>Select a REDI Score</h3>
         <div class="btn-group" role="group" aria-label="...">
           <button type="button" class="btn btn-default" id="eqWeight">Equal Weights</button>
-          <button type="button" class="btn btn-default" id="catSum">Categorical Sum</button>
           <button type="button" class="btn btn-default" id="socInf">Social Infrastructure</button>
           <button type="button" class="btn btn-default" id="phyInf">Physical Infrastructure</button>
-          <button type="button" class="btn btn-default" id="envCon">Environmental Conditions</button>
           <button type="button" class="btn btn-default" id='econStr'>Economic Strength</button>
+          <button type="button" class="btn btn-default" id="envCon">Environmental Conditions</button>
+          <button type="button" class="btn btn-default" id="catSum">Categorical Sum</button>
         </div>
-        <br/>
         <br/>
       </div>
     </div>
-
-    <div class="row">
-      <div id="map1" class="col-md-12 map1"></div>
-    </div>
-
+    <!-- Map Container Div -->
+    <div id="map1" class="col-md-12 map1"></div>
+    <!-- Info Window Div -->
     <div id="infoWindow"></div>
-  </div>
+    <!-- REDI Score Methodology & Data-->
+    <div class="row">
+      <div class="col-md-12 rediMethod">
+        <h3>Indicator Variables & Data Sources</h3>
+        <table class="table">
+          <thead class="thead-default">
+            <tr>
+              <th>Social Infrastructure & Community Connectivity</th>
+              <th>Physical Infrastructure</th>
+              <th>Economic Strength</th>
+              <th>Environmental Conditions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Population Density<br/>Source: <em>US Census Bureau</em></td>
+              <td>Distance to Nearest Fire Station from Tract Center<br/>Source: <em>NYC DCP Bytes of the Big Apple</em></td>
+              <td>Unemployed Population Over 16 in Labor Force<br/>Source: <em>US Census Bureau</em></td>
+              <td>Percent of Tract covered by Hurricane Sandy flood<br/>Source: <em>US FEMA MOTF Hurricane Sandy Impact Analysis</em></td>
+            </tr>
+            <tr>
+              <td>Percent Population under 18 & over 65 years<br/>Source: <em>US Census Bureau</em></td>
+              <td>Distance to Nearest Police Station from Tract Center<br/>Source: <em>NYC DCP Bytes of the Big Apple</em></td>
+              <td>Gini Index for Income Inequality<br/>Source: <em>US Census Bureau</em></td>
+              <td>Tree Density<br/>Source: <em>NYC Street Tree Census (Open Data)</em></td>
+            </tr>
+            <tr>
+              <td>Percent of Non-Family Households with Single Occupancy<br/>Source: <em>US Census Bureau</em></td>
+              <td>Distance to Nearest Health Services from Tract Center<br/>Source: <em>NYC DCP Bytes of the Big Apple</em></td>
+              <td>Lack of Economic Diversity (Proportion of Employed Population in Single Largest Economic Sector)<br/>Source: <em>Derived from US Census Bureau Data on Worker Population for Each Economic Sector</em></td>
+              <td>Building Density<br/>Source: <em>NYC DCP Bytes of the Big Apple</em></td>
+            </tr>
+            <tr>
+              <td>Percent of Non-Family Households with Under 18 Occupants<br/>Source: <em>US Census Bureau</em></td>
+              <td>Number of Subway Stations in 1 mile radius from Tract Center<br/>Source: <em>NYC MTA (Open Data)</em></td>
+              <td></td>
+              <td>Percent of Tract's Land Use categorized as “Open Space”<br/>Source: <em>NYC DCP Bytes of the Big Apple</em></td>
+            </tr>
+            <tr>
+              <td>Percent of Vacant Housing Units<br/>Source: <em>US Census Bureau</em></td>
+              <td>Number of OEM Evacuation Centers in 1 mile radius from Tract Center<br/>Source: <em>NYC OEM (Open Data)</em></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Percent Population Over 25 with Bachelor’s degree<br/>Source: <em>US Census Bureau</em></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Percent Population Over 3 Not Enrolled in School<br/>Source: <em>US Census Bureau</em></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Percent Population with no Health Insurance Coverage<br/>Source: <em>US Census Bureau</em></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Density of Adult Social Services Centers<br/>Source: <em>NYC DCP Bytes of the Big Apple</em></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Density of Child Social Services Centers<br/>Source: <em>NYC DCP Bytes of the Big Apple</em></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Density of Residential Developmental Disabilities Services Centers<br/>Source: <em>NYC DCP Bytes of the Big Apple</em></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Density of Libraries<br/>Source: <em>NYC DCP Bytes of the Big Apple</em></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div><!-- /.container -->
 
   <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
   <script src ="https://code.jquery.com/jquery-2.2.1.js"></script>
