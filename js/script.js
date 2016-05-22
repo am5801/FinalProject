@@ -16,7 +16,7 @@ L.tileLayer(basemapUrl,{
 }).addTo(map1);
 
 //get geojson data file and add data to map
-$.getJSON('data/redi.geojson', function(redi_data) {
+$.getJSON('data/nyc_redi.geojson', function(redi_data) {
   geojson = L.geoJson(redi_data,{
     style: style,
     onEachFeature: onEachFeature
@@ -89,9 +89,9 @@ $("#eqWeight").click(function(){
   $('#infoWindow').html('Information Window<br />Updates as you hover over a tract');
 });
 
-//Categorical Sum REDI Score
-$("#catSum").click(function(){
-  redi_column = 'redi_pct_1';
+//Categorical Weights REDI Score
+$("#catWeight").click(function(){
+  redi_column = 'redisumnor';
   geojson.setStyle(style);
   $('#infoWindow').html('Information Window<br />Updates as you hover over a tract');
 });
