@@ -35,7 +35,7 @@ function getColor(d) {
 
 //this function returns a style object, but dynamically sets fillColor based on the data
 function style(feature) {
-return {
+  return {
     fillColor: getColor(feature.properties[redi_column]),
     weight: 1,
     opacity: 0.5,
@@ -47,22 +47,22 @@ return {
 
 //this function is set to run when a user mouses over any polygon
 function mouseoverFunction(e) {
-var layer = e.target;
+  var layer = e.target;
 
-layer.setStyle({
-    weight: 3,
-    color: 'blue',
-    dashArray: '',
-    fillOpacity: 1
-});
+  layer.setStyle({
+      weight: 3,
+      color: 'blue',
+      dashArray: '',
+      fillOpacity: 1
+  });
 
-if (!L.Browser.ie && !L.Browser.opera) {
-    layer.bringToFront();
-}
+  if (!L.Browser.ie && !L.Browser.opera) {
+      layer.bringToFront();
+  }
 
-//update the text in the infowindow with whatever was in the data
-//console.log(layer.feature.properties.NTAName);
-$('#infoWindow').html(layer.feature.properties.NTAName+'<br />REDI Score: '+Math.round(layer.feature.properties[redi_column]));
+  //update the text in the infowindow with whatever was in the data
+  //console.log(layer.feature.properties.NTAName);
+  $('#infoWindow').html(layer.feature.properties.NTAName+'<br />REDI Score: '+Math.round(layer.feature.properties[redi_column]));
 }
 
 //this runs on mouseout
@@ -86,36 +86,42 @@ var redi_column = 'redi_nor_1'; // initially shows equal weights REDI score
 $("#eqWeight").click(function(){
   redi_column = 'redi_nor_1';
   geojson.setStyle(style);
+  $('#infoWindow').html('Information Window<br />Updates as you hover over a tract');
 });
 
 //Categorical Sum REDI Score
 $("#catSum").click(function(){
   redi_column = 'redi_pct_1';
   geojson.setStyle(style);
+  $('#infoWindow').html('Information Window<br />Updates as you hover over a tract');
 });
 
 //Social Infrastructure & Community Connectivity REDI Score
 $("#socInf").click(function(){
   redi_column = 'socredno_1';
   geojson.setStyle(style);
+  $('#infoWindow').html('Information Window<br />Updates as you hover over a tract');
 });
 
 // Physical Infrastructure REDI Score
 $("#phyInf").click(function(){
   redi_column = 'infredno_1';
   geojson.setStyle(style);
+  $('#infoWindow').html('Information Window<br />Updates as you hover over a tract');
 });
 
 // Environmental Conditions REDI Score
 $("#envCon").click(function(){
   redi_column = 'envredno_1';
   geojson.setStyle(style);
+  $('#infoWindow').html('Information Window<br />Updates as you hover over a tract');
 });
 
 // Economic Strength REDI Score
 $("#econStr").click(function(){
   redi_column = 'ecoredno_1';
   geojson.setStyle(style);
+  $('#infoWindow').html('Information Window<br />Updates as you hover over a tract');
 });
 
 // adding a legend to the map
