@@ -62,7 +62,7 @@ function mouseoverFunction(e) {
 
   //update the text in the infowindow with whatever was in the data
   //console.log(layer.feature.properties.NTAName);
-  $('#infoWindow').html(layer.feature.properties.NTAName+'<br />REDI Score: '+Math.round(layer.feature.properties[redi_column]));
+  $('#infoWindow').html(layer.feature.properties.ntaname+'<br />REDI Score: '+Math.round(layer.feature.properties[redi_column]));
 }
 
 //this runs on mouseout
